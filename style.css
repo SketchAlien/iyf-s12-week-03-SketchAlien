@@ -1,0 +1,616 @@
+/* =========================================
+
+   VARIABLES (Tasks 3.3 & 3.4)
+
+   ========================================= */
+
+:root {
+
+    /* Typography Scale */
+
+    --font-xs: 0.75rem;   
+
+    --font-sm: 0.875rem;  
+
+    --font-base: 1rem;    
+
+    --font-lg: 1.125rem;  
+
+    --font-xl: 1.25rem;   
+
+    --font-2xl: 1.5rem;   
+
+    --font-3xl: 1.875rem; 
+
+    --font-4xl: 2.25rem;  
+
+    /* Fonts */
+
+    --font-heading: Georgia, serif;
+
+    --font-body: Arial, sans-serif;
+
+    /* Colors */
+
+    --color-primary: #4A90E2;
+
+    --color-primary-dark: #2C6FB7;
+
+    --color-background: #F5F7FA;
+
+    --color-text: #2C3E50;
+
+    --color-muted: #7F8C8D;
+
+}
+
+/* =========================================
+
+   RESET & BASE STYLES
+
+   ========================================= */
+
+* {
+
+    margin: 0;
+
+    padding: 0;
+
+    box-sizing: border-box;
+
+}
+
+body {
+
+    font-family: var(--font-body);
+
+    font-size: var(--font-base);
+
+    line-height: 1.6;
+
+    color: var(--color-text);
+
+    background-color: var(--color-background);
+
+    padding: 20px;
+
+}
+
+/* =========================================
+
+   HEADINGS & TEXT
+
+   ========================================= */
+
+h1 {
+
+    font-family: var(--font-heading);
+
+    font-size: var(--font-4xl);
+
+    color: var(--color-primary-dark);
+
+    margin-bottom: 20px;
+
+}
+
+h2 {
+
+    font-family: var(--font-heading);
+
+    font-size: var(--font-3xl);
+
+    color: var(--color-primary);
+
+    margin-bottom: 15px;
+
+}
+
+h3 {
+
+    font-family: var(--font-heading);
+
+    font-size: var(--font-2xl);
+
+    color: var(--color-text);
+
+    margin-bottom: 10px;
+
+}
+
+p {
+
+    margin-bottom: 15px;
+
+}
+
+a {
+
+    color: var(--color-primary);
+
+    text-decoration: none;
+
+}
+
+a:hover {
+
+    color: var(--color-primary-dark);
+
+    text-decoration: underline;
+
+}
+
+/* =========================================
+
+   LAYOUT (Nav, Main, Images)
+
+   ========================================= */
+
+header {
+
+    background-color: white;
+
+    padding: 20px;
+
+    border-bottom: 2px solid var(--color-primary);
+
+    margin-bottom: 30px;
+
+}
+
+nav ul {
+
+    list-style-type: none;
+
+}
+
+nav li {
+
+    display: inline-block;
+
+    margin-right: 15px;
+
+}
+
+main {
+
+    background-color: white;
+
+    padding: 30px;
+
+    border-radius: 8px;
+
+    margin-top: 20px;
+
+}
+
+img {
+
+    max-width: 100%;
+
+    height: auto;
+
+    border-radius: 8px;
+
+    margin-bottom: 15px;
+
+}
+
+footer {
+
+    color: var(--color-muted);
+
+    font-size: var(--font-sm);
+
+    text-align: center;
+
+    margin-top: 30px;
+
+}
+
+/* =========================================
+
+   RESPONSIVE DESIGN (Mobile Phones)
+
+   ========================================= */
+
+@media (max-width: 600px) {
+
+    /* 1. Make the main content box fit the screen better */
+
+    main {
+
+        padding: 15px;
+
+        margin-top: 10px;
+
+    }
+
+    /* 2. Stack the navigation links vertically */
+
+    nav li {
+
+        display: block;
+
+        margin-right: 0;
+
+        margin-bottom: 10px;
+
+    }
+
+    /* 3. Make the headings slightly smaller so they don't overflow */
+
+    h1 {
+
+        font-size: var(--font-3xl); /* Drops from 36px to 30px */
+
+    }
+
+   
+
+    h2 {
+
+        font-size: var(--font-2xl); /* Drops from 30px to 24px */
+
+    }
+
+    /* 4. Make sure the image doesn't get too wide */
+
+    img {
+
+        width: 100%;
+
+        max-width: 250px; /* Keeps your profile photo from getting huge */
+
+    }
+
+}
+
+
+
+/* =========================================
+
+   FLEXBOX NAVIGATION (Task 4.1)
+
+   ========================================= */
+
+header {
+
+    display: flex;
+
+    justify-content: space-between; /* Pushes Logo left, Links right */
+
+    align-items: center; /* Vertically centers everything */
+
+    background-color: white;
+
+    padding: 20px;
+
+    border-bottom: 2px solid var(--color-primary);
+
+    margin-bottom: 30px;
+
+}
+
+nav ul {
+
+    display: flex; /* Puts the links in a row */
+
+    gap: 20px;     /* Adds perfect spacing between the links */
+
+    list-style-type: none;
+
+}
+
+nav a {
+
+    text-decoration: none;
+
+    font-weight: bold;
+
+    color: var(--color-text);
+
+}
+
+nav a:hover {
+
+    color: var(--color-primary);
+
+}
+
+
+/* =========================================
+
+   FLEXBOX CARD ROW (Task 4.1 - Exercise 2)
+
+   ========================================= */
+
+/* Target the section that holds your articles */
+
+.project-grid {
+
+    display: flex;
+
+    flex-wrap: wrap; /* This allows the cards to wrap to the next line on small screens! */
+
+    gap: 20px;       /* Space between the cards */
+
+}
+
+/* Target the articles themselves to make them equal size */
+
+article {
+
+    flex: 1 1 300px; /* Grow, shrink, but try to be at least 300px wide */
+
+    background: white;
+
+    border: 1px solid #ddd;
+
+    padding: 20px;
+
+    border-radius: 8px;
+
+    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+
+}
+
+/* =========================================
+
+   FLEXBOX FOOTER (Task 4.1 - Exercise 3)
+
+   ========================================= */
+
+footer {
+
+    background-color: white;
+
+    padding: 40px 20px 20px 20px;
+
+    margin-top: 50px;
+
+    border-top: 1px solid #ddd;
+
+}
+
+/* Put the columns in a row */
+
+.footer-container {
+
+    display: flex;
+
+    justify-content: space-between; /* Spreads them out */
+
+    flex-wrap: wrap; /* Wraps on mobile */
+
+    gap: 20px;
+
+    max-width: 800px;
+
+    margin: 0 auto; /* Centers the container */
+
+}
+
+/* Make each column take up equal space */
+
+.footer-col {
+
+    flex: 1 1 200px;
+
+}
+
+.footer-col h4 {
+
+    margin-bottom: 10px;
+
+    color: var(--color-primary);
+
+    font-family: var(--font-heading);
+
+}
+
+.footer-col ul {
+
+    list-style: none;
+
+}
+
+.footer-col a {
+
+    color: var(--color-text);
+
+    text-decoration: none;
+
+}
+
+.footer-col a:hover {
+
+    color: var(--color-primary);
+
+}
+
+/* Center the copyright at the bottom */
+
+.footer-bottom {
+
+    text-align: center;
+
+    margin-top: 30px;
+
+    padding-top: 20px;
+
+    border-top: 1px solid #eee;
+
+    color: var(--color-muted);
+
+    font-size: var(--font-sm);
+
+}
+
+/* =========================================
+
+   CSS GRID PHOTO GALLERY (Task 4.2)
+
+   ========================================= */
+
+.photo-gallery {
+
+    display: grid;
+
+    grid-template-columns: repeat(3, 1fr); /* This makes 3 equal columns */
+
+    gap: 20px; /* Space between images */
+
+    margin-top: 20px;
+
+}
+
+.photo-gallery img {
+
+    width: 100%;
+
+    height: 100%;
+
+    object-fit: cover;
+
+    border-radius: 8px;
+
+}
+
+/* =========================================
+
+   TASK 4.3: RESPONSIVE GRID & NAVIGATION
+
+   ========================================= */
+
+/* TABLET (Screens smaller than 1024px) */
+
+@media (max-width: 1024px) {
+
+    /* Change the project grid to 2 columns */
+
+    .project-grid {
+
+        grid-template-columns: repeat(2, 1fr);
+
+    }
+
+}
+
+/* MOBILE (Screens smaller than 768px) */
+
+@media (max-width: 768px) {
+
+    /* Change the project grid to 1 column */
+
+    .project-grid {
+
+        grid-template-columns: 1fr;
+
+    }
+
+    /* Change the photo gallery to 2 columns */
+
+    .photo-gallery {
+
+        grid-template-columns: repeat(2, 1fr);
+
+    }
+
+    /* Stack the footer columns */
+
+    .footer-container {
+
+        flex-direction: column;
+
+    }
+
+    /* Make the navigation stack vertically */
+
+    header {
+
+        flex-direction: column;
+
+        text-align: center;
+
+        gap: 10px;
+
+    }
+
+    nav ul {
+
+        flex-direction: column;
+
+        gap: 10px;
+
+    }
+
+}
+
+/* =========================================
+
+   TABLET (Screens smaller than 1024px)
+
+   ========================================= */
+
+@media (max-width: 1024px) {
+
+    .project-grid {
+
+        grid-template-columns: repeat(2, 1fr);
+
+    }
+
+    .photo-gallery {
+
+        grid-template-columns: repeat(2, 1fr);
+
+    }
+
+}
+
+/* =========================================
+
+   MOBILE (Screens smaller than 768px)
+
+   ========================================= */
+
+@media (max-width: 768px) {
+
+    .project-grid {
+
+        grid-template-columns: 1fr;
+
+    }
+
+    .photo-gallery {
+
+        grid-template-columns: 1fr;
+
+    }
+
+    .footer-container {
+
+        flex-direction: column;
+
+    }
+
+    header {
+
+        flex-direction: column;
+
+        text-align: center;
+
+        gap: 10px;
+
+    }
+
+    nav ul {
+
+        flex-direction: column;
+
+        gap: 10px;
+
+    }
+
+}
